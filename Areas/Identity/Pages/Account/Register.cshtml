@@ -22,20 +22,20 @@
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             
-            <!-- First Name 
+            <!-- First Name -->
             <div class="form-floating mb-3">
-                <input asp-for="Input.FirstName" class="form-control" autocomplete="firstname" aria-required="true" placeholder="First Name" />
+                <input asp-for="Input.FirstName" class="form-control" autocomplete="firstname" aria-required="true" placeholder="First" />
                 <label asp-for="Input.FirstName">First Name</label>
                 <span asp-validation-for="Input.FirstName" class="text-danger"></span>
             </div>
-            -->
-            <!-- Last Name 
+           
+            <!-- Last Name -->
             <div class="form-floating mb-3">
-                <input asp-for="Input.LastName" class="form-control" autocomplete="lastname" aria-required="true" placeholder="Last Name" />
-                <label asp-for="Input.LastName">First Name</label>
+                <input asp-for="Input.LastName" class="form-control" autocomplete="lastname" aria-required="true" placeholder="Last" />
+                <label asp-for="Input.LastName">Last Name</label>
                 <span asp-validation-for="Input.LastName" class="text-danger"></span>
             </div>
-            -->
+            
             <!-- Email -->
             <div class="form-floating mb-3">
                 <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
@@ -61,15 +61,14 @@
     </div>
     <div class="col-md-6 col-md-offset-2">
         <section>
-            <h3>Use another service to register.</h3>
+            <h3>Alternatively we could use Microsoft's identity platform to authenticate.'</h3>
             <hr />
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
                     <div>
                         <p>
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                            about setting up this ASP.NET application to support logging in via external services</a>.
+                        In the other example, I used Microsoft's identity platform. Need input from Greg/Mikey to see what they prefer.
                         </p>
                     </div>
                 }

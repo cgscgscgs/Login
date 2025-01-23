@@ -1,6 +1,21 @@
+/*
+ * date             dev                 changes 
+ * 1/21/2025        celina schlecht     creation of this program file
+ * 1/22/2025        celina schlecht     added using statements for Identity, edited AddDefaultIdentity to access ApplicationUser class,  
+ * 
+ * 
+ * 
+ * 
+ */
+
+
+
+
+
 using Login.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Login.Areas.Identity; //this allows us to use ApplicationUser class
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,9 +27,14 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 // Database draws info from ApplicationUser class which extends IdentityUser
 // Orignally said IdentityUser here
-builder.Services.AddDefaultIdentity<IdentityUser/*ApplicationUser*/>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+   // .AddDefaultTokenProviders(); // fixes issue no service for type has been registered
+
 builder.Services.AddRazorPages();
+//builder.Services.AddServerSideBlazor(); // Support for Blazor, fixes issue with missing service for type
+
+
 
 var app = builder.Build();
 
